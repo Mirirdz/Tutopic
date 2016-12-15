@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TUTOPIC</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+<script src="//maps.google.com/maps/api/js?v=3.25&key= AIzaSyC0dOvWei3RZhrYKPIM2zjwMGy_da8w1N4 "></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.jstype=text/javascript'></script>
+
+
+  </head>
+
+  <body>
+
+ 
+
+
+
+
+ <ul>
+<h2>Tutopic</h2>
+
+ <script type="text/javascript">
+console.log(<%= params.to_json %>);
+
+
+</script>		
+ <% unless current_user.nil? %>
+ <% if current_user.student? %>
+ 	   	<li> <%= link_to "Carreras", pages_carrers_path %> </li>  
+ 	    <li> <%= link_to "Perfil", pages_profile_path %></li>
+ 	    <li> <%= link_to "Inicio", pages_index_path %></li>
+ 	  
+<%  else %>
+        <li> <%= link_to "Coordinadores", pages_coordinadores_path %></li>	    
+ 	    <li> <%= link_to "Estadisticas", pages_estadisticas_path %></li>
+ 	    <li> <%= link_to "Inicio", pages_index_path %></li>
+ 	  <%end%>
+ 	  
+  <%end%>   
+ </ul>
+
+
+
+
+
+
+<p> <%= notice %> </p>
+<p> <%= alert %> </p>
+
+    <%= yield %>
+
+  </body>
+</html>

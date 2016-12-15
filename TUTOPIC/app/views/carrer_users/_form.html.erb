@@ -1,0 +1,41 @@
+
+<style type="text/css">
+  .tablas {
+    left:22%;
+  }
+  .titulo {
+    left:20%;
+  }
+ 
+</style>
+
+
+<%= form_for(carrer_user) do |f| %>
+  <% if carrer_user.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(carrer_user.errors.count, "error") %> </h4>     
+      <% carrer_user.errors.full_messages.each do |message| %>
+        <h4> *<%= message %></h4>
+      <% end %>     
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+   
+    <% if current_user.admin? %>
+     <%= f.label :user_id %>
+     <%= f.select :user_id, User.all.collect {|c| [c.user.email, c.id]}, include_blank: true %>
+      <%end%>
+  </div>
+
+  <div class="field">
+    <%= f.label :carrer_id %>
+    <%= f.select :carrer_id, Carrer.all.collect {|c| [c.name, c.id]}, include_blank: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Subir", class:"button"%>
+  </div>
+<% end %>

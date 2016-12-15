@@ -1,0 +1,52 @@
+<style type="text/css">
+  .tablas {
+    width: 750px;
+    left:2%;
+  }
+  a {
+    opacity: 1;
+  }
+  .titulo {
+    left:25%;
+  }
+</style>
+
+<div class="tablas">
+<p id="notice"><%= notice %></p>
+
+<h1 class="titulo">Subject Carrer Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      
+      <th class="th">Usuario</th>
+      <th class="th">Carrera</th>
+      <th class="th">Materia</th>
+      <th class="th">Puntos</th>
+
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subject_carrer_users.each do |subject_carrer_user| %>
+      <tr>
+
+          <td class="td"><%= subject_carrer_user.carrer_user.user.email %></td>
+        <td class="td"><%= subject_carrer_user.carrer_user.carrer.name%></td>
+        <td class="td"><%= subject_carrer_user.subject.name %></td>
+         <td class="td"><%= subject_carrer_user.points %></td>
+        <td><%= link_to 'Show', subject_carrer_user, class:"button2" %></td>
+        <td><%= link_to 'Edit', edit_subject_carrer_user_path(subject_carrer_user), class:"button2" %></td>
+        <td><%= link_to 'Destroy', subject_carrer_user, class:"button2", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva materia de usuario', new_subject_carrer_user_path, class:"button" %>
+</div>

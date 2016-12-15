@@ -1,0 +1,1 @@
+json.array! @subject_carrer_users, partial: 'subject_carrer_users/subject_carrer_user', as: :subject_carrer_user

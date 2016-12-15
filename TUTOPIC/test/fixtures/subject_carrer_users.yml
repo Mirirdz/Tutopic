@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  points: 1
+  subject: one
+  carreruser: one
+
+two:
+  points: 1
+  subject: two
+  carreruser: two

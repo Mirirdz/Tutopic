@@ -1,0 +1,42 @@
+<style type="text/css">
+  a {
+    opacity: 1;
+  }
+ 
+.tablas {
+  left:25%;
+}
+    
+    
+</style>
+
+<div class="tablas">
+
+<p id="notice"><%= notice %></p>
+
+<h2 class="titulo">Carrers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th class="th">Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody class="tabla">
+    <% @carrers.each do |carrer| %>
+      <tr>
+        <td class="td"><%= carrer.name %></td>
+        <td ><%= link_to 'Show', carrer, class:"button2"%></td>
+        <td ><%= link_to 'Edit', edit_carrer_path(carrer) , class:"button2"%></td>
+        <td ><%= link_to 'Destroy', carrer, class:"button2", method: :delete, data: { confirm: 'Are you sure?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Carrer', new_carrer_path, class:"button" %>
+</div>

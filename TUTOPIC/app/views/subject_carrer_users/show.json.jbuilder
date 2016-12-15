@@ -1,0 +1,1 @@
+json.partial! "subject_carrer_users/subject_carrer_user", subject_carrer_user: @subject_carrer_user

@@ -1,0 +1,43 @@
+<style type="text/css">
+  .tablas {
+    width: 600px;
+    left: 10%;
+  }
+  a {
+    opacity: 1;
+  }
+  .titulo {
+    left: 40%
+  }
+</style>
+<div class="tablas">
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="titulo">Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th class="th">Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="td"><%= user.email %></td>
+        <td><%= link_to 'Show', user, class:"button2" %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), class:"button2" %></td>
+        <td><%= link_to 'Destroy', user, class:"button2",method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_registration_path, class:"button" %>
+
+</div>

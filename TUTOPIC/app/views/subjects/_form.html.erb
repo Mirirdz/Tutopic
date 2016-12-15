@@ -1,0 +1,39 @@
+<style type="text/css">
+ .tablas {
+  left:24%;
+ }
+ .titulo {
+    position: relative;
+    left:10%;
+  }
+</style>
+
+
+<%= form_for(subject) do |f| %>
+  <% if subject.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(subject.errors.count, "error") %> </h4>
+
+      
+      <% subject.errors.full_messages.each do |message| %>
+        <h4><%= message %></h4>
+      <% end %>
+      
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :carrer_id%>
+    <%= f.select :carrer_id, Carrer.all.collect {|c| [c.name, c.id]}, include_blank: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Subir", class:"button" %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<div class="tablas">
+
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Usuario:</strong>
+  <%= @subject_carrer_user.carrer_user.user.email %>
+</p>
+
+
+
+
+<p>
+  <strong>Carrera:</strong>
+  <%= @subject_carrer_user.carrer_user.carrer.name %>
+</p>
+<p>
+  <strong>Materia:</strong>
+  <%= @subject_carrer_user.subject.name %>
+</p>
+<p>
+  <strong>Puntos:</strong>
+  <%= @subject_carrer_user.points %>
+</p>
+
+<%= link_to 'Edit', edit_subject_carrer_user_path(@subject_carrer_user) %> |
+<%= link_to 'Back', subject_carrer_users_path %>
+</div>

@@ -1,0 +1,27 @@
+<%= form_for(carrer) do |f| %>
+  <% if carrer.errors.any? %>
+   
+
+    <div id="error_explanation">
+      <h2><%= pluralize(carrer.errors.count, "error") %> prohibited this carrer from being saved:</h2>
+
+      <ul>
+      <% carrer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "Carrera"%>
+    <%= f.text_field :name %>
+  </div>
+
+
+
+
+  <div class="actions">
+    <%= f.submit "Subir", class:"button" %>
+  </div>
+<% end %>

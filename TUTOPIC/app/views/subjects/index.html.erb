@@ -1,0 +1,49 @@
+<style type="text/css">
+  
+  .tablas {
+    width: 400px;
+    position: relative;
+    left:20%;
+  }
+
+  a{
+    opacity: 1;
+  }
+  .titulo {
+    position: relative;
+    left:30%;
+  }
+</style>
+<div class="tablas">
+
+<p id="notice"><%= notice %></p>
+
+<h2 class="titulo">Subjects</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th class="th">Name</th>
+      <th class="th">Carrer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subjects.each do |subject| %>
+      <tr>
+        <td class="td"><%= subject.name %></td>
+        <td class="td"><%= subject.carrer.name %></td>
+        <td><%= link_to 'Show', subject, class:"button2" %></td>
+        <td><%= link_to 'Edit', edit_subject_path(subject), class:"button2" %></td>
+        <td><%= link_to 'Destroy', subject, class:"button2", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subject', new_subject_path, class:"button" %>
+
+</div>

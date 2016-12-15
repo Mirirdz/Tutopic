@@ -1,0 +1,1 @@
+json.partial! "carrer_users/carrer_user", carrer_user: @carrer_user

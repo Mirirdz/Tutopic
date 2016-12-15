@@ -1,0 +1,37 @@
+<%= form_for(subject_carrer_user) do |f| %>
+  <% if subject_carrer_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(subject_carrer_user.errors.count, "error") %> prohibited this subject_carrer_user from being saved:</h2>
+
+      <ul>
+      <% subject_carrer_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :points, "Puntos" %>
+    <%= f.number_field :points %>
+  </div>
+
+  <div class="field">
+    <%= f.label :subject_id, "Materia" %>
+      <%= f.select :subject_id, Subject.all.collect {|c| [c.name, c.id]}, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :carrer_user_id, "Carrera"%>
+   
+    <% if current_user.admin? %>
+     <%= f.select :carrer_user_id, CarrerUser.all.collect {|c| [c.carrer.name, c.id]}, include_blank: true %>
+     <%else%>
+      <%= f.select :carrer_user_id, CarrerUser.all.where(user_id: current_user.id).collect {|c| [c.carrer.name, c.id]}, include_blank: true %>
+      <%end%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Subir", class:"button"%>
+  </div>
+<% end %>

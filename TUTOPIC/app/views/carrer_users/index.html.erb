@@ -1,0 +1,48 @@
+<style type="text/css">
+  .tablas {
+    width: 650px;
+    left:10%;
+  }
+  .titulo {
+    left:20%;
+  }
+  a {
+    opacity: 1;
+  }
+</style>
+
+
+<div class="tablas">
+
+<p id="notice"><%= notice %></p>
+
+<h2 class="titulo">Carreras de usuarios</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th class="th">Points</th>
+      <th class="th">User</th>
+      <th class="th">Carrera</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carrer_users.each do |carrer_user| %>
+      <tr>
+        <td class="td"><%= carrer_user.points %></td>
+        <td class="td"><%= carrer_user.user.email %></td>
+        <td class="td"><%= carrer_user.carrer.name %></td>
+        <td><%= link_to 'Show', carrer_user , class:"button2" %></td>
+        <td><%= link_to 'Edit', edit_carrer_user_path(carrer_user), class:"button2" %></td>
+        <td><%= link_to 'Destroy', carrer_user, class:"button2",  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Carrer User', new_carrer_user_path, class:"button" %>
+</div>

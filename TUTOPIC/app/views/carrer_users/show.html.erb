@@ -1,0 +1,23 @@
+
+<div class="tablas">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @carrer_user.points %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @carrer_user.user.email %>
+</p>
+
+<p>
+  <strong>Carrer:</strong>
+  <%= @carrer_user.carrer.name %>
+</p>
+
+<%= link_to 'Edit', edit_carrer_user_path(@carrer_user) %> |
+<%= link_to 'Back', carrer_users_path %>
+</div>
